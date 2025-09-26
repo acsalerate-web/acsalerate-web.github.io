@@ -4,22 +4,10 @@ import React from 'react';
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "AcSalerate has been a game-changer. Our team's productivity and deal velocity have increased noticeably thanks to the real-time insights and voice-enabled CRM updates.",
-      author: "Mark Johnson",
-      position: "Sales Director, TechSphere Solutions",
+      quote: "We're currently collecting feedback from our early users. Your experience with AcSalerate is valuable to us and we'd love to hear your thoughts on how we can improve.",
+      author: "The AcSalerate Team",
+      position: "Building the future of sales productivity",
       avatar: "bg-cosmic-light/30"
-    },
-    {
-      quote: "This tool is a lifesaver. It takes the tedious work out of selling by unifying everything I need in one workspace, so I can focus on building relationships and closing deals.",
-      author: "Lisa Chen",
-      position: "Senior Account Executive, InnovateCo",
-      avatar: "bg-cosmic-light/20"
-    },
-    {
-      quote: "With AcSalerate, we finally have clear visibility into our sales pipeline. It's a strategic partner that gives us the clarity we need to hit our numbers every quarter.",
-      author: "David Rodriguez",
-      position: "Sales Manager, Global Dynamics Inc.",
-      avatar: "bg-cosmic-light/40"
     }
   ];
   
@@ -38,11 +26,11 @@ const Testimonials = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className={`grid ${testimonials.length === 1 ? 'max-w-2xl mx-auto' : ''} grid-cols-1 ${testimonials.length === 1 ? '' : 'md:grid-cols-3'} gap-8`}>
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="p-6 rounded-xl border border-border bg-background/80 backdrop-blur-sm hover:border-border/60 transition-all duration-300"
+              className={`p-6 rounded-xl border border-border bg-background/80 backdrop-blur-sm hover:border-border/60 transition-all duration-300 ${testimonials.length === 1 ? 'text-center' : ''}`}
             >
               <div className="mb-6">
                 {[...Array(5)].map((_, i) => (
@@ -50,7 +38,7 @@ const Testimonials = () => {
                 ))}
               </div>
               <p className="text-lg mb-8 text-foreground/90 italic">"{testimonial.quote}"</p>
-              <div className="flex items-center gap-4">
+              <div className={`flex items-center ${testimonials.length === 1 ? 'justify-center' : ''} gap-4`}>
                 <div className={`h-12 w-12 rounded-full ${testimonial.avatar} bg-muted`}></div>
                 <div>
                   <h4 className="font-medium text-foreground">{testimonial.author}</h4>
